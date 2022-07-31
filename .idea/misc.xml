@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/add_24.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/button_background.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/cir_shape.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/edit_background.xml" value="0.12" />
@@ -11,6 +12,8 @@
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/activity_registration.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_friends.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_news.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17962962962962964" />
       </map>

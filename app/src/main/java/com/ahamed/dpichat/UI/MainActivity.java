@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+            finish();
         }
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("DPI Chat");

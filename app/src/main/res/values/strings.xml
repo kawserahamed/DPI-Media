@@ -32,5 +32,7 @@
     <string name="kawser_ahamed">Kawser Ahamed</string>
     <string name="computer_science">Computer Science</string>
     <string name="dot">.....................</string>
+    <string name="type_your_post">Type your post...</string>
+    <string name="submit">Submit</string>
 
 </resources>

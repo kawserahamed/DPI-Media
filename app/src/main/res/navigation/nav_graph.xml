@@ -9,7 +9,12 @@
         android:id="@+id/newsFragment"
         android:name="com.ahamed.dpichat.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/newsToPostAction"
+            app:destination="@id/postFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/friendsFragment"
         android:name="com.ahamed.dpichat.FriendsFragment"
@@ -20,4 +25,15 @@
         android:name="com.ahamed.dpichat.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.ahamed.dpichat.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/postTohome"
+            app:destination="@id/newsFragment"
+            app:popUpTo="@id/newsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
