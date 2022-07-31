@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/viewBackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity">
+
+    <EditText
+        android:id="@+id/reg_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/edit_background"
+        android:backgroundTint="@color/white"
+        android:hint="@string/type_your_full_name"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:importantForAutofill="no" />
+
+    <Spinner
+        android:id="@+id/reg_dep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_background"
+        android:backgroundTint="@color/white"
+        android:entries="@array/department"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/reg_roll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_background"
+        android:backgroundTint="@color/white"
+        android:hint="@string/type_your_roll"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/reg_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_background"
+        android:backgroundTint="@color/white"
+        android:hint="@string/type_your_registration"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:padding="15dp" />
+
+
+    <EditText
+        android:id="@+id/reg_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_background"
+        android:backgroundTint="@color/white"
+        android:hint="@string/type_your_number"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        android:padding="15dp" />
+
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background"
+        android:text="@string/register" />
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DPI Chat</string>
+    <string name="type_your_email">Type your Email</string>
+    <string name="type_your_password">Type your password</string>
+    <string name="type_your_full_name">Type Your full name</string>
+    <string name="log_in">Log in</string>
+    <string name="create_one">Create one</string>
+    <string name="already_have_an_account_log_in">Already have an account ? Log In</string>
+    <string name="create_new_account">Create new Account</string>
+    <string name="create_account">Create Account</string>
+    <string name="type_your_department">Type your Department</string>
+    <string name="type_your_number">Type your Phone number</string>
+    <string name="type_your_roll">Type Your Roll</string>
+    <string name="type_your_registration">Type your Registration</string>
+    <string name="register">register</string>
+    <string name="log_out">Log Out</string>
+
+
+    <string-array name="department">
+        <item>Civil Engineering</item>
+        <item>Architectural</item>
+        <item>Computer Science </item>
+        <item>Electronics Engineering</item>
+        <item>Electrical Engineering</item>
+        <item>Mechanical Engineering</item>
+    </string-array>
+
+</resources>

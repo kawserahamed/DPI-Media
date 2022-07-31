@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "528689714931",
+    "project_id": "dpi-chat",
+    "storage_bucket": "dpi-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528689714931:android:9d86a0be8c834985fa8986",
+        "android_client_info": {
+          "package_name": "com.ahamed.dpichat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528689714931-3t1qecpghjoeu1dcq4ispf91427ui2dm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahamed.dpichat",
+            "certificate_hash": "e5a861bab9af5a24cb75cda6b5f69b2ed99f8363"
+          }
+        },
+        {
+          "client_id": "528689714931-f390k0fjroob11fba0t0n0a5b9s5plfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrs_JFXBzyp9GvHjbjt8BNF6fHUdiykB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528689714931-f390k0fjroob11fba0t0n0a5b9s5plfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
