@@ -21,14 +21,11 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
 
-        binding.btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                auth.signOut();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
-                Toast.makeText(DashboardActivity.this, "Sign Out", Toast.LENGTH_SHORT).show();
-            }
+        binding.btnLogOut.setOnClickListener(view -> {
+            auth.signOut();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+            Toast.makeText(DashboardActivity.this, "Sign Out", Toast.LENGTH_SHORT).show();
         });
 
 
