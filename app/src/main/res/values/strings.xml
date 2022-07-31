@@ -29,5 +29,8 @@
     <string name="home">Home</string>
     <string name="friends">Friends</string>
     <string name="profile">Profile</string>
+    <string name="kawser_ahamed">Kawser Ahamed</string>
+    <string name="computer_science">Computer Science</string>
+    <string name="dot">.....................</string>
 
 </resources>
