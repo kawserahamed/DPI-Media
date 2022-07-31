@@ -16,13 +16,13 @@
         android:theme="@style/Theme.DPIChat"
         tools:targetApi="31">
         <activity
-            android:name=".DashboardActivity"
+            android:name=".UI.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".UI.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

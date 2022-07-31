@@ -1,4 +1,4 @@
-package com.ahamed.dpichat;
+package com.ahamed.dpichat.UI;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

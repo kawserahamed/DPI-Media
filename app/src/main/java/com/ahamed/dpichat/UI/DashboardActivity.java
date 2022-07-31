@@ -1,12 +1,12 @@
-package com.ahamed.dpichat;
+package com.ahamed.dpichat.UI;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
+import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.databinding.ActivityDashboardBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,12 +21,11 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
 
-        binding.btnLogOut.setOnClickListener(view -> {
-            auth.signOut();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-            Toast.makeText(DashboardActivity.this, "Sign Out", Toast.LENGTH_SHORT).show();
-        });
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragmentContainerView);
+
+        assert navHostFragment != null;
+        NavigationUI.setupWithNavController(binding.bottomNavId, navHostFragment.getNavController());
 
 
     }

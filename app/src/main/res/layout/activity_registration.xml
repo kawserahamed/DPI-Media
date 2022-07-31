@@ -6,7 +6,7 @@
     android:background="@color/viewBackground"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".RegistrationActivity">
+    tools:context=".UI.RegistrationActivity">
 
     <EditText
         android:id="@+id/reg_name"

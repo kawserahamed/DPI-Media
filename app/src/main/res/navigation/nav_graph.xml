@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
 
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.ahamed.dpichat.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="com.ahamed.dpichat.FriendsFragment"
+        android:label="fragment_friends"
+        tools:layout="@layout/fragment_friends" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ahamed.dpichat.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
