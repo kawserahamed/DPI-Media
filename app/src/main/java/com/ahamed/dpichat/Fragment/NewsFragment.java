@@ -31,7 +31,7 @@ public class NewsFragment extends Fragment {
         binding.floatingActionButton.setOnClickListener(view ->
                 Navigation.findNavController(view).navigate(R.id.newsToPostAction));
 
-        adapter = new PostRecyclerView(DashboardActivity.postList);
+        adapter = new PostRecyclerView(getActivity(), DashboardActivity.postList);
         binding.rvPostRV.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.rvPostRV.setAdapter(adapter);
 
