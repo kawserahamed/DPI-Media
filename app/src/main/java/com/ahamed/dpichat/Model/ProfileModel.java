@@ -1,6 +1,8 @@
 package com.ahamed.dpichat.Model;
 
-public class ProfileModel {
+import java.io.Serializable;
+
+public class ProfileModel implements Serializable {
     private String department;
     private String email;
     private String id;

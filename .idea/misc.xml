@@ -7,16 +7,21 @@
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/button_background.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/cir_shape.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/edit_background.xml" value="0.12" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/left_chat_background.xml" value="0.1355" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/profile_icon.xml" value="0.12" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/red_background.xml" value="0.12" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/drawable/right_chat_background.xml" value="0.1355" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/activity_dashboard.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/activity_registration.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_friends.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_message.xml" value="0.22" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_news.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_post.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/layout_post_item.xml" value="0.22613065326633167" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/layout_right_chat.xml" value="0.33" />
+        <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/left_chat.xml" value="0.33" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/layout/profile_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/PIKTER IT/AndroidStudioProjects/DPIChat/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17962962962962964" />
       </map>

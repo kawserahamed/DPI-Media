@@ -34,5 +34,6 @@
     <string name="dot">.....................</string>
     <string name="type_your_post">Type your post...</string>
     <string name="submit">Submit</string>
+    <string name="type_your_message">Type your message...</string>
 
 </resources>

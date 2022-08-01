@@ -8,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ahamed.dpichat.Fragment.FriendsFragmentDirections;
 import com.ahamed.dpichat.Model.ProfileModel;
 import com.ahamed.dpichat.R;
 import com.bumptech.glide.Glide;
@@ -43,6 +45,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
         holder.title.setText(model.getName());
         holder.department.setText(model.getDepartment());
         Glide.with(context).load(model.getImageUrl()).into(holder.imageView);
+        holder.itemView.setOnClickListener(view -> {
+            FriendsFragmentDirections.FriendsToMessage action = FriendsFragmentDirections.friendsToMessage(model);
+            Navigation.findNavController(view).navigate(action);
+        });
 
     }
 

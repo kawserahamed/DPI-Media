@@ -19,7 +19,11 @@
         android:id="@+id/friendsFragment"
         android:name="com.ahamed.dpichat.Fragment.FriendsFragment"
         android:label="fragment_friends"
-        tools:layout="@layout/fragment_friends" />
+        tools:layout="@layout/fragment_friends" >
+        <action
+            android:id="@+id/friendsToMessage"
+            app:destination="@id/messageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.ahamed.dpichat.Fragment.ProfileFragment"
@@ -35,5 +39,14 @@
             app:destination="@id/newsFragment"
             app:popUpTo="@id/newsFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.ahamed.dpichat.Fragment.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <argument
+            android:name="ProfileData"
+            app:argType="com.ahamed.dpichat.Model.ProfileModel" />
     </fragment>
 </navigation>
