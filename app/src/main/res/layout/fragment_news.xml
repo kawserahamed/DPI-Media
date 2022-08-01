@@ -3,8 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/viewBackground"
     android:layout_height="match_parent"
-    tools:context=".NewsFragment">
+    tools:context=".Fragment.NewsFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/layout_post_item"
+        android:id="@+id/rv_postRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

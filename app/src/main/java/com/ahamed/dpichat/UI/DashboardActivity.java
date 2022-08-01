@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.ahamed.dpichat.Model.PostModel;
 import com.ahamed.dpichat.Model.ProfileModel;
 import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.databinding.ActivityDashboardBinding;
@@ -18,14 +19,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DashboardActivity extends AppCompatActivity {
     ActivityDashboardBinding binding;
-    private FirebaseAuth auth;
     private DatabaseReference databaseReference;
-    private FirebaseDatabase firebaseDatabase;
-    private FirebaseUser user;
+    private DatabaseReference postDatabaseReference;
     private String currentId;
     public static ProfileModel model;
+    public static List<PostModel> postList;
+    public static List<ProfileModel> profileList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,24 +42,66 @@ public class DashboardActivity extends AppCompatActivity {
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(binding.bottomNavId, navHostFragment.getNavController());
 
-        auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Profile");
-        user = auth.getCurrentUser();
-        dataLoadFromFirebase();
-
-
-    }
-
-    private void dataLoadFromFirebase() {
-
+        postDatabaseReference = firebaseDatabase.getReference("Post");
+        FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
             currentId = user.getUid();
         }
+        profileDataLoad();
+        postList = new ArrayList<>();
+        profileList = new ArrayList<>();
+        postDataLoad();
+        profileDataListLoad();
+    }
+
+    private void profileDataLoad() {
+
         databaseReference.child(currentId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(ProfileModel.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void postDataLoad() {
+        postDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    PostModel model = dataSnapshot.getValue(PostModel.class);
+                    postList.add(model);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
+    private void profileDataListLoad() {
+
+        profileList.clear();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ProfileModel profileModel = dataSnapshot.getValue(ProfileModel.class);
+                    if (!currentId.equals(profileModel.getId())) {
+                        profileList.add(profileModel);
+                    }
+                }
             }
 
             @Override

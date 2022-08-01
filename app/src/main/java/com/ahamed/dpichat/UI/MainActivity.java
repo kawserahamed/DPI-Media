@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     private FirebaseAuth auth;
-    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             finish();
         }
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("DPI Chat");
-        progressDialog.setMessage("plz Wait... ...");
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading...");
 
 
         binding.tvLogIn.setOnClickListener(view -> {
@@ -67,13 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 binding.regPass.setError("Can't be Empty");
                 return;
             }
-            progressDialog.show();
 
-            auth.createUserWithEmailAndPassword(nEmail, nPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+            if (nEmail != null && nPass != null) {
+                progressDialog.show();
+                auth.createUserWithEmailAndPassword(nEmail, nPass).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(MainActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
                         intent.putExtra("email", nEmail);
                         intent.putExtra("pass", nPass);
@@ -81,10 +78,11 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         progressDialog.dismiss();
                     }
-                }
+                }).addOnFailureListener(e -> Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
 
-            }).addOnFailureListener(e -> Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
-            progressDialog.dismiss();
+                progressDialog.dismiss();
+            }
+
 
         });
 

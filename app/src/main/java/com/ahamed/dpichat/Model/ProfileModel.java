@@ -4,16 +4,18 @@ public class ProfileModel {
     private String department;
     private String email;
     private String id;
+    private String imageUrl;
     private String name;
     private String password;
     private String phone;
     private String registration;
     private String roll;
 
-    public ProfileModel(String department, String email, String id, String name, String password, String phone, String registration, String roll) {
+    public ProfileModel(String department, String email, String id, String imageUrl, String name, String password, String phone, String registration, String roll) {
         this.department = department;
         this.email = email;
         this.id = id;
+        this.imageUrl = imageUrl;
         this.name = name;
         this.password = password;
         this.phone = phone;
@@ -46,6 +48,14 @@ public class ProfileModel {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -88,3 +98,4 @@ public class ProfileModel {
         this.roll = roll;
     }
 }
+

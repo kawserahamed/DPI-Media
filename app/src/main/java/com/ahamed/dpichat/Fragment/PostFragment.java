@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -15,10 +14,6 @@ import com.ahamed.dpichat.Model.ProfileModel;
 import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.UI.DashboardActivity;
 import com.ahamed.dpichat.databinding.FragmentPostBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -50,23 +45,26 @@ public class PostFragment extends Fragment {
                 binding.etPost.setError("Can't be Empty");
                 return;
             }
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("post", strPost);
-            map.put("name", model.getName());
-            map.put("id", model.getId());
 
-            postDatabaseReference.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
+            if (model != null) {
+
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("post", strPost);
+                map.put("name", model.getName());
+                map.put("id", model.getId());
+                map.put("imageUrl", model.getImageUrl());
+
+                postDatabaseReference.push().setValue(map).addOnCompleteListener(task -> {
 
                     if (task.isSuccessful()) {
                         Toast.makeText(getActivity(), "Post uploaded", Toast.LENGTH_SHORT).show();
                         Navigation.findNavController(view).navigate(R.id.postTohome);
                     }
 
-                }
-            }).addOnFailureListener(e -> Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show());
 
+
+            }
 
         });
 
