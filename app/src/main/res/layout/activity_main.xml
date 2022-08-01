@@ -9,10 +9,16 @@
     android:orientation="vertical"
     tools:context=".UI.MainActivity">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/layout_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:visibility="gone"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -82,6 +88,7 @@
         android:id="@+id/Layout_logIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true">

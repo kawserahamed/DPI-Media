@@ -124,6 +124,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 });
 
 
+            } else {
+                Toast.makeText(this, "Select Image", Toast.LENGTH_SHORT).show();
             }
 
         });

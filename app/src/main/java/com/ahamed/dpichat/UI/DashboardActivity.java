@@ -92,10 +92,11 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void profileDataListLoad() {
 
-        profileList.clear();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                profileList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ProfileModel profileModel = dataSnapshot.getValue(ProfileModel.class);
                     if (!currentId.equals(profileModel.getId())) {
