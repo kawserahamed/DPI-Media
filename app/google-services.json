@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "528689714931",
+    "firebase_url": "https://dpi-chat-default-rtdb.firebaseio.com",
     "project_id": "dpi-chat",
     "storage_bucket": "dpi-chat.appspot.com"
   },

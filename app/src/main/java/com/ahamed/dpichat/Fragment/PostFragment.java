@@ -1,4 +1,4 @@
-package com.ahamed.dpichat;
+package com.ahamed.dpichat.Fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,28 +12,22 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.ahamed.dpichat.Model.ProfileModel;
+import com.ahamed.dpichat.R;
+import com.ahamed.dpichat.UI.DashboardActivity;
 import com.ahamed.dpichat.databinding.FragmentPostBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 public class PostFragment extends Fragment {
 
-    private FirebaseAuth auth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
     private DatabaseReference postDatabaseReference;
-    private String currentId;
     private ProfileModel model;
-    private FirebaseUser user;
 
     public PostFragment() {
         // Required empty public constructor
@@ -43,26 +37,10 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentPostBinding binding = FragmentPostBinding.inflate(inflater, container, false);
-        auth = FirebaseAuth.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Profile");
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         postDatabaseReference = firebaseDatabase.getReference("Post");
-        user = auth.getCurrentUser();
-        if (user != null) {
-            currentId = user.getUid();
-        }
-
-        databaseReference.child(currentId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                model = snapshot.getValue(ProfileModel.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        model = DashboardActivity.model;
 
         binding.btnSubmit.setOnClickListener(view -> {
 
@@ -91,7 +69,6 @@ public class PostFragment extends Fragment {
 
 
         });
-
 
         return binding.getRoot();
     }

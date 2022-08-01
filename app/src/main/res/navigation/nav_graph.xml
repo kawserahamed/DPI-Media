@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.ahamed.dpichat.NewsFragment"
+        android:name="com.ahamed.dpichat.Fragment.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -17,17 +17,17 @@
     </fragment>
     <fragment
         android:id="@+id/friendsFragment"
-        android:name="com.ahamed.dpichat.FriendsFragment"
+        android:name="com.ahamed.dpichat.Fragment.FriendsFragment"
         android:label="fragment_friends"
         tools:layout="@layout/fragment_friends" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.ahamed.dpichat.ProfileFragment"
+        android:name="com.ahamed.dpichat.Fragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/postFragment"
-        android:name="com.ahamed.dpichat.PostFragment"
+        android:name="com.ahamed.dpichat.Fragment.PostFragment"
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" >
         <action

@@ -1,4 +1,4 @@
-package com.ahamed.dpichat;
+package com.ahamed.dpichat.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.databinding.FragmentNewsBinding;
 
 public class NewsFragment extends Fragment {
@@ -17,14 +18,17 @@ public class NewsFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentNewsBinding binding = FragmentNewsBinding.inflate(inflater, container, false);
 
-
         binding.floatingActionButton.setOnClickListener(view ->
                 Navigation.findNavController(view).navigate(R.id.newsToPostAction));
+
+
         return binding.getRoot();
     }
+
 }
