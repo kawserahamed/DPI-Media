@@ -12,8 +12,19 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/app_name" />
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/dhaka_polytechnic_institute"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/layout_register"
@@ -89,6 +100,7 @@
         android:id="@+id/Layout_logIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -148,6 +160,7 @@
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="@string/create_new_account"
         android:textColor="@color/purple_500" />
