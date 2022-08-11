@@ -25,13 +25,9 @@ import java.util.List;
 
 public class FriendsFragment extends Fragment {
 
-
-
-
     public FriendsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,10 +36,6 @@ public class FriendsFragment extends Fragment {
         ProfileAdapter adapter = new ProfileAdapter(DashboardActivity.profileList, getActivity());
         binding.rcProfileList.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.rcProfileList.setAdapter(adapter);
-
         return binding.getRoot();
     }
-
-
-
 }

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.DPIChat"
         tools:targetApi="31">
         <activity
+            android:name=".AnimationActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.DashboardActivity"
             android:exported="false" />
         <activity
