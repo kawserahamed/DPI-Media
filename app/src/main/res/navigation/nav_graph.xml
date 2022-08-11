@@ -23,9 +23,6 @@
         <action
             android:id="@+id/friendsToMessage"
             app:destination="@id/messageFragment" />
-        <action
-            android:id="@+id/friendToProfile"
-            app:destination="@id/friendProfile" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -51,10 +48,17 @@
         <argument
             android:name="ProfileData"
             app:argType="com.ahamed.dpichat.Model.ProfileModel" />
+        <action
+            android:id="@+id/messageTofriend"
+            app:destination="@id/friendProfile" />
     </fragment>
     <fragment
         android:id="@+id/friendProfile"
-        android:name="com.ahamed.dpichat.FriendProfile"
+        android:name="com.ahamed.dpichat.Fragment.FriendProfile"
         android:label="fragment_friend_profile"
-        tools:layout="@layout/fragment_friend_profile" />
+        tools:layout="@layout/fragment_friend_profile" >
+        <argument
+            android:name="profile"
+            app:argType="com.ahamed.dpichat.Model.ProfileModel" />
+    </fragment>
 </navigation>

@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ahamed.dpichat.Adapter.ChatAdapter;
@@ -43,7 +44,7 @@ public class MessageFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         FragmentMessageBinding binding = FragmentMessageBinding.inflate(inflater, container, false);
@@ -108,6 +109,11 @@ public class MessageFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        binding.toolbar.setOnClickListener(view -> {
+            MessageFragmentDirections.MessageTofriend action = MessageFragmentDirections.messageTofriend(otherProfile);
+            Navigation.findNavController(view).navigate(action);
         });
 
 

@@ -54,7 +54,7 @@ public class DashboardActivity extends AppCompatActivity {
         profileDataLoad();
         postList = new ArrayList<>();
         profileList = new ArrayList<>();
-//        postDataLoad();
+        postDataLoad();
         profileDataListLoad();
     }
 
@@ -73,7 +73,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-  /*  private void postDataLoad() {
+    private void postDataLoad() {
         postDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -88,7 +88,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-    }*/
+    }
 
     private void profileDataListLoad() {
 
