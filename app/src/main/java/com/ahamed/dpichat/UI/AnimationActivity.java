@@ -23,13 +23,10 @@ public class AnimationActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
 
             }
-
             @Override
             public void onFinish() {
-
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 finish();
-
             }
         }.start();
     }
