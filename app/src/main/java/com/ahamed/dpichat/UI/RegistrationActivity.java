@@ -44,28 +44,23 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Profile");
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         binding.ivImageView.setOnClickListener(view -> getImageFromAlbum());
-
         binding.btnRegister.setOnClickListener(view -> {
-
             if (auth.getCurrentUser() != null) {
                 id = auth.getCurrentUser().getUid();
             }
             email = getIntent().getStringExtra("email");
             pass = getIntent().getStringExtra("pass");
-
             name = binding.regName.getText().toString().trim();
             department = binding.regDep.getSelectedItem().toString().trim();
             roll = binding.regRoll.getText().toString().trim();
             reg = binding.regReg.getText().toString().trim();
             phone = binding.regPhone.getText().toString().trim();
-
             if (TextUtils.isEmpty(name)) {
                 binding.regName.setError("Can't be Empty");
                 return;
@@ -82,15 +77,12 @@ public class RegistrationActivity extends AppCompatActivity {
                 binding.regPhone.setError("Can't be Empty");
                 return;
             }
-
             if (imageUri != null) {
                 ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
                 StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
-
                 ref.putFile(imageUri).addOnSuccessListener(taskSnapshot -> ref.getDownloadUrl().addOnSuccessListener(uri -> {
-
                     imageURL = String.valueOf(uri);
                     HashMap<String, Object> myMap = new HashMap<>();
                     myMap.put("id", id);
@@ -102,7 +94,6 @@ public class RegistrationActivity extends AppCompatActivity {
                     myMap.put("registration", reg);
                     myMap.put("phone", phone);
                     myMap.put("imageUrl", imageURL);
-
                     databaseReference.child(id).setValue(myMap).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
@@ -111,7 +102,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             finish();
                         }
                     }).addOnFailureListener(e -> Toast.makeText(RegistrationActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
-
                 })).addOnFailureListener(e -> {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -122,22 +112,16 @@ public class RegistrationActivity extends AppCompatActivity {
                             / taskSnapshot.getTotalByteCount());
                     progressDialog.setMessage("Uploaded " + (int) progress + "%");
                 });
-
-
             } else {
                 Toast.makeText(this, "Select Image", Toast.LENGTH_SHORT).show();
             }
-
         });
-
-
     }
 
     private void getImageFromAlbum() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-
         startActivityForResult(
                 Intent.createChooser(
                         intent,
@@ -149,13 +133,10 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int reqCode, int resultCode, Intent data) {
         super.onActivityResult(reqCode, resultCode, data);
-
-
         if (reqCode == RESULT_LOAD_IMG
                 && resultCode == RESULT_OK
                 && data != null
                 && data.getData() != null) {
-
             imageUri = data.getData();
             try {
                 Bitmap bitmap = MediaStore
