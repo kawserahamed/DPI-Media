@@ -26,17 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         auth = FirebaseAuth.getInstance();
-
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             finish();
         }
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading...");
-
-
         binding.tvLogIn.setOnClickListener(view -> {
             binding.layoutRegister.setVisibility(View.GONE);
             binding.LayoutLogIn.setVisibility(View.VISIBLE);
@@ -51,12 +47,9 @@ public class MainActivity extends AppCompatActivity {
             binding.tvRegister.setVisibility(View.GONE);
         });
 
-
         binding.btnCreate.setOnClickListener(view -> {
-
             String nEmail = binding.regEmil.getText().toString();
             String nPass = binding.regPass.getText().toString();
-
             if (nEmail.equals("")) {
                 binding.regEmil.setError("Can't be Empty");
                 return;
@@ -65,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 binding.regPass.setError("Can't be Empty");
                 return;
             }
-
             if (nEmail != null && nPass != null) {
                 progressDialog.show();
                 auth.createUserWithEmailAndPassword(nEmail, nPass).addOnCompleteListener(task -> {
@@ -82,15 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
                 progressDialog.dismiss();
             }
-
-
         });
 
         binding.btnLogIn.setOnClickListener(view -> {
-
             String strEmail = binding.logMail.getText().toString().trim();
             String srtPass = binding.logPass.getText().toString().trim();
-
             if (TextUtils.isEmpty(strEmail)) {
                 binding.logMail.setError("Can't be Empty");
                 return;

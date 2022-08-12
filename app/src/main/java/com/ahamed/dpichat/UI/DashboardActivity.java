@@ -36,12 +36,10 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragmentContainerView);
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(binding.bottomNavId, navHostFragment.getNavController());
-
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -91,8 +89,6 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void profileDataListLoad() {
-
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
