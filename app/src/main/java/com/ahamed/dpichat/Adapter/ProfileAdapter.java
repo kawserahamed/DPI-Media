@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder> {
-
     List<ProfileModel> profileList;
     Context context;
 
@@ -40,7 +39,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
 
     @Override
     public void onBindViewHolder(@NonNull ProfileViewHolder holder, int position) {
-
         ProfileModel model = profileList.get(position);
         holder.title.setText(model.getName());
         holder.department.setText(model.getDepartment());
@@ -49,7 +47,6 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
             FriendsFragmentDirections.FriendsToMessage action = FriendsFragmentDirections.friendsToMessage(model);
             Navigation.findNavController(view).navigate(action);
         });
-
     }
 
     @Override
@@ -58,18 +55,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     }
 
     static class ProfileViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageView;
         TextView title;
         TextView department;
 
         public ProfileViewHolder(@NonNull View itemView) {
             super(itemView);
-
             imageView = itemView.findViewById(R.id.Iv_profile);
             title = itemView.findViewById(R.id.tv_profile_title);
             department = itemView.findViewById(R.id.tv_profileDepartment);
-
         }
     }
 }

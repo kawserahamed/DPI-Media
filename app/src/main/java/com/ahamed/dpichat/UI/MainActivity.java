@@ -7,13 +7,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ahamed.dpichat.databinding.ActivityMainBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             if (nEmail != null && nPass != null) {
-                progressDialog.show();
+                binding.progressBarId.setVisibility(View.VISIBLE);
                 auth.createUserWithEmailAndPassword(nEmail, nPass).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
@@ -68,11 +64,14 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("pass", nPass);
                         startActivity(intent);
                         finish();
-                        progressDialog.dismiss();
+                        binding.progressBarId.setVisibility(View.GONE);
                     }
-                }).addOnFailureListener(e -> Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> {
+                    binding.progressBarId.setVisibility(View.GONE);
+                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
 
-                progressDialog.dismiss();
+
             }
         });
 
@@ -87,20 +86,21 @@ public class MainActivity extends AppCompatActivity {
                 binding.logPass.setError("Can't be Empty");
                 return;
             }
-            progressDialog.show();
-            auth.signInWithEmailAndPassword(strEmail, srtPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+            binding.progressBarId.setVisibility(View.VISIBLE);
+            auth.signInWithEmailAndPassword(strEmail, srtPass).addOnCompleteListener(task -> {
 
-                    if (task.isSuccessful()) {
-                        startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
-                        progressDialog.dismiss();
-                        Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+                    progressDialog.dismiss();
+                    Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
+                    finish();
+                    binding.progressBarId.setVisibility(View.GONE);
                 }
-            }).addOnFailureListener(e -> Toast.makeText(MainActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show());
-            progressDialog.dismiss();
+            }).addOnFailureListener(e -> {
+                binding.progressBarId.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+            });
         });
     }
 }

@@ -42,7 +42,6 @@ public class PostRecyclerView extends RecyclerView.Adapter<PostRecyclerView.Post
         PostModel model = postList.get(position);
         holder.idName.setText(model.getName());
         holder.post.setText(model.getPost());
-
         Glide.with(context).load(model.getImageUrl()).into(holder.imageView);
     }
 

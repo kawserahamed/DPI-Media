@@ -22,7 +22,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
     FirebaseUser currentUser;
     static final int RIGHT = 0;
     static final int LEFT = 1;
-
     Context context;
     List<ChatModel> chatList;
 
@@ -66,8 +65,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
         } else {
             return LEFT;
         }
-
-
     }
 
     static class ChatViewHolder extends RecyclerView.ViewHolder {
