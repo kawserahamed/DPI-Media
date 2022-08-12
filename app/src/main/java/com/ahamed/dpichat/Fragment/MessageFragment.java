@@ -31,7 +31,6 @@ import java.util.List;
 
 
 public class MessageFragment extends Fragment {
-
     FirebaseAuth auth;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
@@ -42,11 +41,9 @@ public class MessageFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         FragmentMessageBinding binding = FragmentMessageBinding.inflate(inflater, container, false);
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance();
@@ -55,17 +52,13 @@ public class MessageFragment extends Fragment {
         ProfileModel otherProfile = MessageFragmentArgs.fromBundle(getArguments()).getProfileData();
         chatList = new ArrayList<>();
         ProfileModel myProfile = DashboardActivity.model;
-
         Glide.with(binding.getRoot()).load(otherProfile.getImageUrl()).into(binding.ivOtherProfile);
         binding.ivOtherName.setText(otherProfile.getName());
-
-
         binding.btnSend.setOnClickListener(view -> {
             String massageId = databaseReference.push().getKey();
             String myId = myProfile.getId();
             String strMessage = binding.textMessage.getText().toString();
             String strReceiver = otherProfile.getId();
-
             if (TextUtils.isEmpty(strMessage)) {
                 binding.textMessage.setError("Can't be empty");
             } else {
@@ -74,24 +67,19 @@ public class MessageFragment extends Fragment {
                 chatMap.put("receiverId", strReceiver);
                 chatMap.put("message", strMessage);
                 chatMap.put("messageId", massageId);
-
                 assert massageId != null;
                 databaseReference.child(massageId).setValue(chatMap).addOnCompleteListener(task ->
                         binding.textMessage.setText("")).addOnFailureListener(e ->
                         Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show());
             }
         });
-
-
         chatDatabase = FirebaseDatabase.getInstance().getReference("Chat");
-
         chatDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chatList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ChatModel chatModel = dataSnapshot.getValue(ChatModel.class);
-
                     assert chatModel != null;
                     if (otherProfile.getId().equals(chatModel.getSenderId())
                             && chatModel.getReceiverId().equals(myProfile.getId())
@@ -107,17 +95,12 @@ public class MessageFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
-
         binding.toolbar.setOnClickListener(view -> {
             MessageFragmentDirections.MessageTofriend action = MessageFragmentDirections.messageTofriend(otherProfile);
             Navigation.findNavController(view).navigate(action);
         });
-
-
         return binding.getRoot();
     }
-
 }

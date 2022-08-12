@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class PostFragment extends Fragment {
-
     private DatabaseReference postDatabaseReference;
     private ProfileModel model;
 
@@ -32,42 +31,29 @@ public class PostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentPostBinding binding = FragmentPostBinding.inflate(inflater, container, false);
-
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         postDatabaseReference = firebaseDatabase.getReference("Post");
         model = DashboardActivity.model;
-
         binding.btnSubmit.setOnClickListener(view -> {
-
             String strPost = binding.etPost.getText().toString().trim();
-
             if (TextUtils.isEmpty(strPost)) {
                 binding.etPost.setError("Can't be Empty");
                 return;
             }
-
             if (model != null) {
-
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("post", strPost);
                 map.put("name", model.getName());
                 map.put("id", model.getId());
                 map.put("imageUrl", model.getImageUrl());
-
                 postDatabaseReference.push().setValue(map).addOnCompleteListener(task -> {
-
                     if (task.isSuccessful()) {
                         Toast.makeText(getActivity(), "Post uploaded", Toast.LENGTH_SHORT).show();
                         Navigation.findNavController(view).navigate(R.id.postTohome);
                     }
-
                 }).addOnFailureListener(e -> Toast.makeText(getActivity(), "" + e.getMessage(), Toast.LENGTH_SHORT).show());
-
-
             }
-
         });
-
         return binding.getRoot();
     }
 }

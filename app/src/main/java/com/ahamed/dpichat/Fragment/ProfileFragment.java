@@ -23,14 +23,12 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentProfileBinding binding = FragmentProfileBinding.inflate(inflater, container, false);
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance();
-
         ProfileModel model = DashboardActivity.model;
         if (model != null) {
             String nDep = model.getDepartment();
@@ -38,29 +36,23 @@ public class ProfileFragment extends Fragment {
             String nReg = "Registration : " + model.getRegistration();
             String nRoll = "Roll : " + model.getRoll();
             String nEmail = "Email : " + model.getEmail();
-
             binding.tvName.setText(model.getName());
             binding.tvDep.setText(nDep);
             binding.tvPhone.setText(nPhone);
             binding.tvReg.setText(nReg);
             binding.tvRoll.setText(nRoll);
             binding.tvEmail.setText(nEmail);
-
             Glide.with(binding.getRoot())
                     .load(model.getImageUrl())
                     .centerCrop()
                     .placeholder(R.drawable.image)
                     .into(binding.imageView);
-
         }
-
         binding.btnLogOut.setOnClickListener(view -> {
             auth.signOut();
             startActivity(new Intent(getActivity(), MainActivity.class));
             getActivity().finish();
         });
-
-
         return binding.getRoot();
     }
 }
