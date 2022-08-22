@@ -1,13 +1,13 @@
-## DPI-Media-
-News application using the API from https://newsapi.org/ API News Is JSON API for live news and blog articles from the media. News Feed is a simple that gives you latest and best news from multiple sources so you no longer need to swap between apps to stay informed.
+## This app is developed for Dhaka Polytechnic Institute 7th Semester App Development subject
 
-![image](https://user-images.githubusercontent.com/93905438/163754916-aed63e76-b352-4f26-a0fc-035197a77a78.png)
 
 <p align="center">
-  
-   <img src="https://user-images.githubusercontent.com/93905438/163754744-9d5be726-e138-4748-8f75-677882624a35.png" width="350" alt="accessibility text">
-   <img src="https://user-images.githubusercontent.com/93905438/163754753-c1ab9782-aba8-4a65-9e01-d45087dbc33b.png" width="350" alt="accessibility text">
-  
+   <img src="https://user-images.githubusercontent.com/93905438/185928827-6e7a367c-9224-4fcb-a3da-1ffbd8cf1769.png" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/185929172-ec948d7c-d978-4aa3-95ff-8dd021cb48a6.png" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/185929192-978b2925-0015-4a26-b813-a17bfc481fc8.png" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/185929193-0ae07842-81d4-4e99-a435-0a8b65d3f4cc.png" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/185929545-18193058-5d2f-4293-80fe-902b0f93647f.jpg" width="220" alt="accessibility text">
 </p>  
 
-.... ... ...
+
+
