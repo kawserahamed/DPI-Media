@@ -1,5 +1,21 @@
 ## This app is developed for Dhaka Polytechnic Institute 7th Semester App Development subject
 
+This app is a example for chat app base on Google Firebase, messages are delivered in real-time.  
+
+### Feature  
+**1. Signin, signout, register.**  
+* Register: allow user register a new account with username and password
+* Signin: user must signin with username and password to use app.
+* Forgot password: connect to Firebase service to reset password.
+* Edit profile: change avatar image, edit username.
+
+**2. Chat, group chat**  
+* Chat with friend: add friend, unfriend, send text message.
+* Chat in group: create group, add member, kickoff member, delete group and rename.  
+
+
+### ScreenShots
+
 
 <p align="center">
    <img src="https://user-images.githubusercontent.com/93905438/185928827-6e7a367c-9224-4fcb-a3da-1ffbd8cf1769.png" width="220" alt="accessibility text">
@@ -11,6 +27,7 @@
 
 <p align="center">
    <img src="https://user-images.githubusercontent.com/93905438/185930490-5257850b-bd88-44d5-9d99-5f5307449683.jpg" width="200" alt="accessibility text">
-   <img src="https://user-images.githubusercontent.com/93905438/185929545-18193058-5d2f-4293-80fe-902b0f93647f.jpg" width="200" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/189119236-7a27afa2-0daa-4da0-89c0-efc4a96873d1.png" width="200" alt="accessibility text">
 </p>  
+
 
