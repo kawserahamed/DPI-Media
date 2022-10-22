@@ -9,10 +9,6 @@ This app is a example for chat app base on Google Firebase, messages are deliver
 * Forgot password: connect to Firebase service to reset password.
 * Edit profile: change avatar image, edit username.
 
-**2. Chat, group chat**  
-* Chat with friend: add friend, unfriend, send text message.
-* Chat in group: create group, add member, kickoff member, delete group and rename.  
-
 
 ### ScreenShots
 
