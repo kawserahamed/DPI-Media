@@ -1,4 +1,4 @@
-## This app is developed for Dhaka Polytechnic Institute 7th Semester App Development subject
+## This app is developed for Dhaka Polytechnic Institute 
 
 This app is a example for chat app base on Google Firebase, messages are delivered in real-time.  
 
