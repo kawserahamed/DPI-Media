@@ -14,16 +14,15 @@ This app is a example for chat app base on Google Firebase, messages are deliver
 
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/93905438/185928827-6e7a367c-9224-4fcb-a3da-1ffbd8cf1769.png" width="220" alt="accessibility text">
-   <img src="https://user-images.githubusercontent.com/93905438/185929172-ec948d7c-d978-4aa3-95ff-8dd021cb48a6.png" width="220" alt="accessibility text">
-   <img src="https://user-images.githubusercontent.com/93905438/185929192-978b2925-0015-4a26-b813-a17bfc481fc8.png" width="220" alt="accessibility text">
-  
+   <img src="https://user-images.githubusercontent.com/93905438/223377764-f06b9895-3e1b-4f5e-acd3-775f185d07b0.jpg" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/223377772-34cd7f79-86d0-42ee-9630-3a7cd7b2a541.jpg" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/223377775-e945d5fe-fb77-43d9-b178-77c19a9b166d.jpg" width="220" alt="accessibility text">
+   <img src="https://user-images.githubusercontent.com/93905438/223377745-b73f88ec-4f99-46f6-adda-efc95f2e4412.jpg" width="220" alt="accessibility text">
 </p>  
 
 
-<p align="center">
-   <img src="https://user-images.githubusercontent.com/93905438/185930490-5257850b-bd88-44d5-9d99-5f5307449683.jpg" width="200" alt="accessibility text">
-   <img src="https://user-images.githubusercontent.com/93905438/189119236-7a27afa2-0daa-4da0-89c0-efc4a96873d1.png" width="200" alt="accessibility text">
-</p>  
+
+
+
 
 
