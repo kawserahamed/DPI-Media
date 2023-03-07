@@ -8,12 +8,17 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.ahamed.dpichat.Model.ProfileModel;
 import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.UI.DashboardActivity;
 import com.ahamed.dpichat.databinding.FragmentPostBinding;
+import com.ahamed.dpichat.viewmodel.DataViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,7 +38,11 @@ public class PostFragment extends Fragment {
         FragmentPostBinding binding = FragmentPostBinding.inflate(inflater, container, false);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         postDatabaseReference = firebaseDatabase.getReference("Post");
-        model = DashboardActivity.model;
+        FirebaseAuth auth =FirebaseAuth.getInstance();
+        DataViewModel viewModel = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+        viewModel.getMyData().observe(getViewLifecycleOwner(), profileModel -> model = profileModel);
+
+
         binding.btnSubmit.setOnClickListener(view -> {
             String strPost = binding.etPost.getText().toString().trim();
             if (TextUtils.isEmpty(strPost)) {

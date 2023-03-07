@@ -24,13 +24,6 @@ import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
     ActivityDashboardBinding binding;
-    private DatabaseReference databaseReference;
-    private DatabaseReference postDatabaseReference;
-    private String currentId;
-    public static ProfileModel model;
-    public static List<PostModel> postList;
-    public static List<ProfileModel> profileList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,71 +33,5 @@ public class DashboardActivity extends AppCompatActivity {
                 .findFragmentById(R.id.fragmentContainerView);
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(binding.bottomNavId, navHostFragment.getNavController());
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Profile");
-        postDatabaseReference = firebaseDatabase.getReference("Post");
-        FirebaseUser user = auth.getCurrentUser();
-        if (user != null) {
-            currentId = user.getUid();
-        }
-        profileDataLoad();
-        postList = new ArrayList<>();
-        profileList = new ArrayList<>();
-        postDataLoad();
-        profileDataListLoad();
-    }
-
-    private void profileDataLoad() {
-
-        databaseReference.child(currentId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                model = snapshot.getValue(ProfileModel.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
-    private void postDataLoad() {
-        postDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                postList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    PostModel model = dataSnapshot.getValue(PostModel.class);
-                    postList.add(model);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-    }
-
-    private void profileDataListLoad() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                profileList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    ProfileModel profileModel = dataSnapshot.getValue(ProfileModel.class);
-                    if (!currentId.equals(profileModel.getId())) {
-                        profileList.add(profileModel);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 }

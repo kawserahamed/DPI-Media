@@ -7,14 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.ahamed.dpichat.Model.ProfileModel;
 import com.ahamed.dpichat.R;
 import com.ahamed.dpichat.UI.DashboardActivity;
 import com.ahamed.dpichat.UI.MainActivity;
 import com.ahamed.dpichat.databinding.FragmentProfileBinding;
+import com.ahamed.dpichat.viewmodel.DataViewModel;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
     private FirebaseAuth auth;
@@ -29,25 +33,28 @@ public class ProfileFragment extends Fragment {
         FragmentProfileBinding binding = FragmentProfileBinding.inflate(inflater, container, false);
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance();
-        ProfileModel model = DashboardActivity.model;
-        if (model != null) {
-            String nDep = model.getDepartment();
-            String nPhone = "Phone : " + model.getPhone();
-            String nReg = "Registration : " + model.getRegistration();
-            String nRoll = "Roll : " + model.getRoll();
-            String nEmail = "Email : " + model.getEmail();
-            binding.tvName.setText(model.getName());
+        DataViewModel viewModel = new ViewModelProvider(requireActivity()).get(DataViewModel.class);
+
+        viewModel.getMyData().observe(getViewLifecycleOwner(), profileModel -> {
+            String nDep = profileModel.getDepartment();
+            String nPhone = "Phone : " + profileModel.getPhone();
+            String nReg = "Registration : " + profileModel.getRegistration();
+            String nRoll = "Roll : " + profileModel.getRoll();
+            String nEmail = "Email : " + profileModel.getEmail();
+            binding.tvName.setText(profileModel.getName());
             binding.tvDep.setText(nDep);
             binding.tvPhone.setText(nPhone);
             binding.tvReg.setText(nReg);
             binding.tvRoll.setText(nRoll);
             binding.tvEmail.setText(nEmail);
             Glide.with(binding.getRoot())
-                    .load(model.getImageUrl())
+                    .load(profileModel.getImageUrl())
                     .centerCrop()
                     .placeholder(R.drawable.image)
                     .into(binding.imageView);
-        }
+
+        });
+
         binding.btnLogOut.setOnClickListener(view -> {
             auth.signOut();
             startActivity(new Intent(getActivity(), MainActivity.class));

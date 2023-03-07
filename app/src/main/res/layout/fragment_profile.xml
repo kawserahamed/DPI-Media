@@ -43,6 +43,7 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <LinearLayout
         android:id="@+id/layout_profile"
         android:layout_width="match_parent"
@@ -55,36 +56,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarId"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.72">
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="60dp"
             android:gravity="center"
-            android:text="@string/dot"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/type_your_department" />
 
         <TextView
             android:id="@+id/tv_dep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/dot"
-            android:textColor="@color/colorTextTitle"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="italic" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorTextLight" />
+            tools:text="@string/type_your_department" />
 
         <TextView
             android:id="@+id/tv_roll"
@@ -93,9 +86,9 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/dot"
             android:textColor="@color/colorTextTitle"
-            android:textSize="20sp" />
+            android:textSize="14sp"
+            tools:text="@string/type_your_department" />
 
         <TextView
             android:id="@+id/tv_reg"
@@ -103,9 +96,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/dot"
             android:textColor="@color/colorTextTitle"
-            android:textSize="20sp" />
+            android:textSize="14sp"
+            tools:text="@string/type_your_department" />
 
         <TextView
             android:id="@+id/tv_phone"
@@ -113,9 +106,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/dot"
             android:textColor="@color/colorTextTitle"
-            android:textSize="20sp" />
+            android:textSize="14sp"
+            tools:text="@string/type_your_department" />
 
         <TextView
             android:id="@+id/tv_email"
@@ -123,9 +116,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/dot"
             android:textColor="@color/colorTextTitle"
-            android:textSize="20sp" />
+            android:textSize="14sp"
+            tools:text="@string/type_your_department" />
 
         <Button
             android:id="@+id/btn_logOut"
@@ -140,8 +133,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:scaleType="centerCrop"
         android:src="@drawable/image"
         app:civ_border_color="@color/white"

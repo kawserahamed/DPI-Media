@@ -23,14 +23,14 @@
         android:gravity="center"
         android:text="@string/dhaka_polytechnic_institute"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/progressBarId"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/layout_register"
@@ -50,12 +50,11 @@
             android:paddingVertical="20dp">
 
             <TextView
+                style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_account"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textStyle="bold" />
 
             <EditText
 
@@ -124,12 +123,11 @@
             android:paddingVertical="20dp">
 
             <TextView
+                style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/log_in"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/log_mail"
